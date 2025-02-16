@@ -1,77 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Monte Carlo Equity Curve Simulator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="theme-toggle">
-      <label class="switch">
-        <input type="checkbox" id="theme-checkbox">
-        <span class="slider round"></span>
-      </label>
-    </div>
-
-    <div class="header">
-        <h1>Monte Carlo Equity Curve Simulator<hr></h1>
-    </div>
-
-    <div class="content">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Monte Carlo Equity Curve Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="theme-checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="header">
+        <h1>
+          Monte Carlo Equity Curve Simulator
+          <hr />
+        </h1>
+      </div>
+      <div class="content">
         <div class="input-container">
-            <div class="input-group">
-                <label for="rewardRiskRatio">Reward:Risk Ratio:</label>
-                <input type="number" id="rewardRiskRatio" value="4" min="0.1" step="0.1">
-            </div>
-            <div class="input-group">
-                <label for="winPercentage">Winning %:</label>
-                <input type="number" id="winPercentage" value="30" min="0" max="100" step="1">
-            </div>
-            <div class="input-group">
-                <label for="riskPerTrade">Risk % per Trade:</label>
-                <input type="number" id="riskPerTrade" value="1" min="0.1" max="100" step="0.1">
-            </div>
-            <div class="input-group">
-                <label for="numTrades">Number of Trades:</label>
-                <input type="number" id="numTrades" value="1000" min="1" step="1">
-            </div>
-            <div class="input-group">
-                <label for="avgTradesPerYear">Avg Trades per Year:</label>
-                <input type="number" id="avgTradesPerYear" value="200" min="1" step="1">
-            </div>
-            <div class="input-group">
-                <label for="numSimulations">Number of Simulations:</label>
-                <input type="number" id="numSimulations" value="20" min="1" step="1">
-            </div>
-            <button id="runSimulation">Run Simulation</button>
+          <div class="input-group">
+            <label for="rewardRiskRatio">Reward:Risk Ratio:</label>
+            <input
+              type="number"
+              id="rewardRiskRatio"
+              value="4"
+              min="0.1"
+              step="0.1"
+            />
+          </div>
+          <div class="input-group">
+            <label for="winPercentage">Winning %:</label>
+            <input
+              type="number"
+              id="winPercentage"
+              value="30"
+              min="0"
+              max="100"
+              step="1"
+            />
+          </div>
+          <div class="input-group">
+            <label for="riskPerTrade">Risk % per Trade:</label>
+            <input
+              type="number"
+              id="riskPerTrade"
+              value="1"
+              min="0.1"
+              max="100"
+              step="0.1"
+            />
+          </div>
+          <div class="input-group">
+            <label for="numTrades">Number of Trades:</label>
+            <input type="number" id="numTrades" value="1000" min="1" step="1" />
+          </div>
+          <div class="input-group">
+            <label for="avgTradesPerYear">Avg Trades per Year:</label>
+            <input
+              type="number"
+              id="avgTradesPerYear"
+              value="200"
+              min="1"
+              step="1"
+            />
+          </div>
+          <div class="input-group">
+            <label for="numSimulations">Number of Simulations:</label>
+            <input
+              type="number"
+              id="numSimulations"
+              value="20"
+              min="1"
+              step="1"
+            />
+          </div>
+          <button id="runSimulation">Run Simulation</button>
         </div>
         <div class="chart-container">
           <canvas id="equityCurveChart"></canvas>
         </div>
+      </div>
+      <div class="results-container">
+        <h2>Simulation Results</h2>
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th data-sort-type="number">CAGR %</th>
+              <th data-sort-type="number">CALMAR</th>
+              <th data-sort-type="number">Peak Drawdown %</th>
+              <th data-sort-type="number">Avg Drawdown %</th>
+              <th data-sort-type="number">Trades to Recover (Peak)</th>
+              <th data-sort-type="number">Trades to Recover (Avg)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <div class="results-container">
-      <h2>Simulation Results</h2>
-      <table id="resultsTable">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th data-sort-type="number">CAGR %</th>
-            <th data-sort-type="number">CALMAR</th>
-            <th data-sort-type="number">Peak Drawdown %</th>
-            <th data-sort-type="number">Avg Drawdown %</th>
-            <th data-sort-type="number">Trades to Recover (Peak)</th>
-            <th data-sort-type="number">Trades to Recover (Avg)</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
